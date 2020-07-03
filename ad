@@ -1,0 +1,35 @@
+[33mcommit c889c5faae7537efd69f506ec0b8a5a8c83be6ca[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 18:27:01 2020 -0300
+
+     Criando operação de instanciação
+
+[33mcommit 8152b56337f8380604f650be8ed9463eef726894[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 18:16:56 2020 -0300
+
+    Criando repository e service para Categoria
+
+[33mcommit 7d03f9c9fb298d904a4c25b66d3d1fcbc40ae13b[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 11:50:31 2020 -0300
+
+    Configurado banco H2 e persistencia com JPA
+
+[33mcommit c2a2e6f7f87586075c02686d23649e5cb1e91cdf[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 11:37:15 2020 -0300
+
+    criada primeira classe de dominio 'categoria'
+
+[33mcommit 9ff74553d3cea7b572b1452f8c2689ff1d6b3bd7[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 11:13:38 2020 -0300
+
+    Rest criado e testado
+
+[33mcommit 0cbd6f528236f3cac0cf1e7f114134ba5719a51e[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 24 10:40:33 2020 -0300
+
+    Criar o projeto com suas dependencias

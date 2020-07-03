@@ -8,13 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Categoria implements Serializable{
+public class Filme implements Serializable{
 
 	/**
-	 * numero de versão da classe
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -22,23 +24,30 @@ public class Categoria implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private Double preco;
 	
-	//atributo que representa relacionamento muito para muitos com filmes
-	@ManyToMany(mappedBy = "categorias")
-	private List<Filme> filmes = new ArrayList<>();
-
 	
-	public Categoria() {
+	//atributo que representa relacionamento muito para muitos com categorias
+	//como a classe filme é a classe forte do relacionamento o mapeamento fica aqui
+	//a tabela nova do relacionamento de muitos para muitos
+	@ManyToMany
+	@JoinTable(name = "FILME_CATEGORIA",
+				joinColumns = @JoinColumn(name = "filme_id"),
+				inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+	private List<Categoria> categorias = new ArrayList<>();
+	
+	
+	public Filme(){
 		
 	}
 
-	public Categoria(Integer id, String nome) {
+
+	public Filme(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.preco = preco;
 	}
-
-
 
 
 	public Integer getId() {
@@ -60,6 +69,27 @@ public class Categoria implements Serializable{
 		this.nome = nome;
 	}
 
+
+	public Double getPreco() {
+		return preco;
+	}
+
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -67,17 +97,8 @@ public class Categoria implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-	
-	public List<Filme> getFilmes() {
-		return filmes;
-	}
 
-	public void setFilmes(List<Filme> filmes) {
-		this.filmes = filmes;
-	}
-	
-		
-	//compara os objetos no caso pelo id
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -86,7 +107,7 @@ public class Categoria implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Filme other = (Filme) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -94,8 +115,8 @@ public class Categoria implements Serializable{
 			return false;
 		return true;
 	}
-
-
+	
+	
 	
 	
 
