@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Filme implements Serializable{
 
@@ -30,6 +32,8 @@ public class Filme implements Serializable{
 	//atributo que representa relacionamento muito para muitos com categorias
 	//como a classe filme é a classe forte do relacionamento o mapeamento fica aqui
 	//a tabela nova do relacionamento de muitos para muitos
+	//JsonIgnore para que o filme nao renderize categoria
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "FILME_CATEGORIA",
 				joinColumns = @JoinColumn(name = "filme_id"),
